@@ -1,6 +1,3 @@
-all:	
-	gcc -L ../mlx -lmlx -framework OpenGL -framework AppKit make_img.c -o test_make.out
-	./test_make.out
-
-clean: 
-	rm -rf *.out
+all:
+	gcc make_img_temp.c -lmlx -lXext -lX11 -lm -lbsd
+	./a.out
