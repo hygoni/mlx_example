@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "../mlx/mlx.h"
+#include <mlx.h>
 
 int main()
 {

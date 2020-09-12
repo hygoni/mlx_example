@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include "../mlx/mlx.h"
+#include <mlx.h>
+
 typedef struct s_img
 {
 	void		*ptr;
