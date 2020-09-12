@@ -2,18 +2,20 @@
 #include <stdlib.h>
 #include <mlx.h>
 
-#define X_EVENT_KEY_PRESS		2
-#define X_EVENT_KEY_release		3
-#define X_EVENT_KEY_EXIT		17
+#define X_EVENT_KEY_PRESS	2
+#define KEY_MASK		(1L << 0)
 
-#define KEY_ESC			53
-# define KEY_Q			12
-# define KEY_W			13
-# define KEY_E			14
-# define KEY_R			15
-# define KEY_A			0
-# define KEY_S			1
-# define KEY_D			2
+#define KEY_W			119
+#define KEY_A			97
+#define KEY_S			115
+#define KEY_D			100
+#define KEY_ESC 		65307
+#define KEY_Q 			113
+#define KEY_R 			114
+#define KEY_LEFT_ARROW		65361
+#define KEY_UP_ARROW		65362
+#define KEY_RIGHT_ARROW		65363
+#define KEY_DOWN_ARROW		65364
 
  //밑에 key_press()에 넘겨줄 변수들, 인자를 하나만 받기때문에 structure로 한곳에 모아야함
  //x,y, str은 임의로 만든 변수들
@@ -42,6 +44,7 @@ int				key_press(int keycode, t_param *param)
 		exit(0);
 	else
 	{
+		printf("you entered is %d\n", keycode);
 		printf("'W' key: Print string\n");
 		printf("'A' key: Print location\n");
 		printf("'ESC' key: Exit this program\n");
@@ -58,6 +61,6 @@ int			main(void)
 	param_init(&param);
 	mlx = mlx_init();
 	win = mlx_new_window(mlx, 500, 500, "mlx_project");
-	mlx_hook(win, X_EVENT_KEY_PRESS, 0, &key_press, &param);
+	mlx_hook(win, X_EVENT_KEY_PRESS, KEY_MASK, &key_press, &param);
 	mlx_loop(mlx);
 }
